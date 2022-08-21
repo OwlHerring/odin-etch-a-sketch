@@ -21,7 +21,7 @@ let lastRandomColor;
 function giveRandomColor() { 
     let aRandomColor;
     do {
-        aRandomColor = distinctColors[Math.round(Math.random()*distinctColors.length)];
+        aRandomColor = distinctColors[Math.round(Math.random()*distinctColors.length-1)];
     } while(aRandomColor === lastRandomColor)
     lastRandomColor = aRandomColor;
     return aRandomColor;
