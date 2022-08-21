@@ -18,6 +18,13 @@ body {
     justify-content:center;
     align-items:center;
     flex-direction:column;
+
+    font-family:'Times New Roman', Times, serif;
+    font-size:larger;
+}
+.header .error-text{
+    margin-bottom:5px;
+    color: darkred;
 }
 
 .container {
@@ -28,7 +35,7 @@ body {
 }
 
 .square {
-    opacity: 0.0;
+    opacity: 0.01;
     transition: all 1s;
     transition-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -38,4 +45,5 @@ body {
     box-shadow: 0 0 2rem #ffffff;
 
     scale: 1.2;
+    border-radius:20%;
 }

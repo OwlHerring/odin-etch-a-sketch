@@ -34,11 +34,37 @@ let myColumns = []; // this will be a one-dimensional array of the columns.
 // I can't get the above line to work, but for now I suppose I don't need it.
 
 const bigSquare = document.body.querySelector('.container');
+const inputField = document.body.querySelector('.field');
+const inputSubmit = document.body.querySelector('.submit');
+const errorText = document.body.querySelector('.error-text');
 
 createGrid();
 
+// The following happens if you hit the submit button:
+inputSubmit.addEventListener('click', () => {
+    //errorText.textContent = ""; // I'll put stuff regarding the error text later.
+
+    const squareNum = Number(inputField.value);
+    errorText.textContent = `The grid is ${squareNum} by ${squareNum}. There are ${squareNum * squareNum} squares total.`;
+    errorText.style.color = "black";
+
+    if (squareNum > 0) {
+        xByX = squareNum;
+        createGrid();
+    }
+    else { 
+        errorText.textContent = "Please enter a positive number."
+        errorText.style.color = "red";
+    }
+});
+
 function createGrid() {
     // later I'll put something here to clear the grid first.
+
+    for(i=0; i<myColumns.length; i++){
+        myColumns[i].remove();
+    }
+    myColumns = [];
 
     for(i=0; i<xByX; i++){
         myColumns[i] = document.createElement("div");
@@ -51,10 +77,8 @@ function createGrid() {
             theseSquares[j] = document.createElement("div");
             theseSquares[j].classList.add("square");
             
-            theseSquares[j].style.cssText = `flex: 1;
-                                             background-color: #${giveRandomColor()};
-                                             
-                                             `;
+            theseSquares[j].style.cssText = `flex: 1;`;
+            theseSquares[j].style.backgroundColor = `#${giveRandomColor()}`;
 
             myColumns[i].appendChild(theseSquares[j]);
         }
