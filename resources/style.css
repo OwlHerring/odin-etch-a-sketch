@@ -47,3 +47,9 @@ body {
     scale: 1.2;
     border-radius:20%;
 }
+.square.mouseovered {
+    opacity: 1;
+    box-shadow: 0 0 5px #ffffff;
+    transition: all 2s;
+    
+}

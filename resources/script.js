@@ -81,6 +81,10 @@ function createGrid() {
             theseSquares[j].style.backgroundColor = `#${giveRandomColor()}`;
 
             myColumns[i].appendChild(theseSquares[j]);
+
+            theseSquares[j].addEventListener('mouseout', (e) => {
+                e.target.classList.toggle("mouseovered");
+            });
         }
 
         bigSquare.appendChild(myColumns[i]);
