@@ -51,9 +51,12 @@ function createGrid() {
         let theseSquares = [];
         for(j=0; j<xByX; j++){
             theseSquares[j] = document.createElement("div");
+            theseSquares[j].classList.add("square");
             
             theseSquares[j].style.cssText = `flex: 1;
-                                             background-color: #${giveRandomColor()}`;
+                                             background-color: #${giveRandomColor()};
+                                             
+                                             `;
 
             myColumns[i].appendChild(theseSquares[j]);
         }
@@ -61,3 +64,4 @@ function createGrid() {
         bigSquare.appendChild(myColumns[i]);
     }
 }
+
