@@ -38,6 +38,24 @@ const inputField = document.body.querySelector('.field');
 const inputSubmit = document.body.querySelector('.submit');
 const errorText = document.body.querySelector('.error-text');
 
+
+const mouseoutToggle = document.body.querySelector('.mouseoutToggle');
+let mouseoutBool = false;
+mouseoutToggle.addEventListener('click', toggleMouseout);
+document.body.addEventListener('keydown', (e) => {
+    if(e.key === "q" || e.key === "Q") toggleMouseout();
+});
+function toggleMouseout() {
+    if(mouseoutBool){
+        mouseoutBool = false;
+        mouseoutToggle.textContent = "Mouseover OFF";
+    }
+    else{
+        mouseoutBool = true;
+        mouseoutToggle.textContent = "Mouseover ON";
+    }
+}
+
 createGrid();
 
 // The following happens if you hit the submit button:
@@ -83,7 +101,8 @@ function createGrid() {
             myColumns[i].appendChild(theseSquares[j]);
 
             theseSquares[j].addEventListener('mouseout', (e) => {
-                e.target.classList.toggle("mouseovered");
+                if(mouseoutBool) e.target.classList.toggle("mouseovered");
+                else e.target.classList.remove("mouseovered");
             });
         }
 
