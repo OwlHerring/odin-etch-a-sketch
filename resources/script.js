@@ -27,15 +27,13 @@ function giveRandomColor() {
     return aRandomColor;
 }
 
-let xByX = 16;
+let xByX = 32;
 // as in the grid will be 16 by 16. Later this will be configurable
 let myColumns = []; // this will be a one-dimensional array of the columns.
 //let mySquares = [[]]; // this will be a two-dimensional array of squares sorted by column.
 // I can't get the above line to work, but for now I suppose I don't need it.
 
 const bigSquare = document.body.querySelector('.container');
-
-// here as reference: bigSquare.style.cssText = ""
 
 createGrid();
 
@@ -64,4 +62,3 @@ function createGrid() {
         bigSquare.appendChild(myColumns[i]);
     }
 }
-
