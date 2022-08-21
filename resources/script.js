@@ -27,7 +27,7 @@ function giveRandomColor() {
     return aRandomColor;
 }
 
-let xByX = 32;
+let xByX = 16;
 // as in the grid will be 16 by 16. Later this will be configurable
 let myColumns = []; // this will be a one-dimensional array of the columns.
 //let mySquares = [[]]; // this will be a two-dimensional array of squares sorted by column.
@@ -45,7 +45,7 @@ inputSubmit.addEventListener('click', () => {
     //errorText.textContent = ""; // I'll put stuff regarding the error text later.
 
     const squareNum = Number(inputField.value);
-    errorText.textContent = `The grid is ${squareNum} by ${squareNum}. There are ${squareNum * squareNum} squares total.`;
+    errorText.textContent = `The grid is ${Math.ceil(squareNum)} by ${Math.ceil(squareNum)}. There are ${Math.ceil(squareNum) * Math.ceil(squareNum)} squares total.`;
     errorText.style.color = "black";
 
     if (squareNum > 0) {
